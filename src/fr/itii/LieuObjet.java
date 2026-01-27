@@ -2,7 +2,7 @@ package fr.itii;
 
 import com.google.gson.annotations.SerializedName;
 
-public class lieu_objet {
+public class LieuObjet {
 
     @SerializedName("place name")
     private String nom;

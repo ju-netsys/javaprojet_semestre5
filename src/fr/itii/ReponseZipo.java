@@ -5,13 +5,13 @@ import java.util.List;
 public class ReponseZipo {
 
     private String country;
-    private List<fr.itii.lieu_objet> places;
+    private List<LieuObjet> places;
 
     public String getCountry() {
         return country;
     }
 
-    public List<fr.itii.lieu_objet> getPlaces() {
+    public List<LieuObjet> getPlaces() {
         return places;
     }
 }
