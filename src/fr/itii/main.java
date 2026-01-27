@@ -57,17 +57,17 @@ public class main {
             connexion.disconnect();
 
             Gson gson = new Gson();
-            fr.itii.ReponseZipo response = gson.fromJson(json.toString(), fr.itii.ReponseZipo.class);
+            fr.itii.ReponseZipo reponseZipo = gson.fromJson(json.toString(), fr.itii.ReponseZipo.class);
 
             String sql = "INSERT INTO lieu_table(name, state, latitude, longitude, country) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement stmt = connexionsql.prepareStatement(sql);
 
-            for (fr.itii.lieu_objet lieu : response.getPlaces()) {
+            for (fr.itii.lieu_objet lieu : reponseZipo.getPlaces()) {
                 stmt.setString(1, lieu.getNom());
                 stmt.setString(2, lieu.getState());
                 stmt.setString(3, lieu.getLatitude());
                 stmt.setString(4, lieu.getLongitude());
-                stmt.setString(5, response.getCountry());
+                stmt.setString(5, reponseZipo.getCountry());
                 stmt.executeUpdate();
             }
 
