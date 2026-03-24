@@ -20,8 +20,8 @@ public class ConnexionSql {
                         "id SERIAL PRIMARY KEY," +
                         "name VARCHAR(256)," +
                         "state VARCHAR(256)," +
-                        "latitude DOUBLE(50)," +
-                        "longitude DOUBLE(50)," +
+                        "latitude DOUBLE PRECISION," +
+                        "longitude DOUBLE PRECISION," +
                         "country VARCHAR(256))"
         );
 
@@ -31,8 +31,8 @@ public class ConnexionSql {
         for (LieuObjet lieu : reponse.getPlaces()) {
             stmt.setString(1, lieu.getNom());
             stmt.setString(2, lieu.getState());
-            stmt.setString(3, lieu.getLatitude());
-            stmt.setString(4, lieu.getLongitude());
+            stmt.setDouble(3, Double.parseDouble(lieu.getLatitude()));
+            stmt.setDouble(4, Double.parseDouble(lieu.getLongitude()));
             stmt.setString(5, reponse.getCountry());
             stmt.executeUpdate();
         }
