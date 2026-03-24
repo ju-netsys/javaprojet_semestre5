@@ -7,9 +7,6 @@ public class main {
             EntreeUser entree = new EntreeUser();
             entree.saisir();
 
-            String pays = entree.getPays();
-            String codePostal = entree.getCodePostal();
-
             ConnexionHttp http = new ConnexionHttp();
             String json = http.appelerApi(entree.getPays(), entree.getCodePostal());
 
